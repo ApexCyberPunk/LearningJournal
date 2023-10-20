@@ -4,43 +4,127 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./journal.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <header>
         <nav class="navBarBtn">
-            <ul class="unorderedList">
-                <li class="listItems display item1">Learning Path
-                    <ul>
-                        <li class="listItems dropdownItems"><a href="#">HTML</a></li>
-                        <li class="listItems dropdownItems"><a href="#">Javascript</a></li>
-                        <li class="listItems dropdownItems"><a href="#">CSS</a></li>
-                        <li class="listItems dropdownItems"><a href="#">React</a></li>
+            <ul class="mainnorderedList">
+                <li class="listItems  item1" data-learning="smart">Learning Path
+                    <ul class="nodisplay pathList">
+                        <li data-dropdown="drop!"  class="listItems dropdownItems"><a data-dropdown="drop!" href="#">HTML</a></li>
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">Javascript</a></li>
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">CSS</a></li>
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">React</a></li>
                     </ul>
                 </li>
-                <li class="listItems item2">Contact
-                    <ul>
-                        <li class="listItems dropdownItems"><a>Github</a></li>
+                <li  class="listItems item2" data-contact="getInTouch">Contact
+                    <ul class="nodisplay contactList">
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!">Github</a></li>
                     </ul>
                 </li>
-                <li class="listItems item3">Projects
-                    <ul>
-                        <li><a href="#">Nosapp.app</a></li>
-                        <li><a href="#">Zelcore.Finance</a></li>
+                <li class="listItems item3" data-projects="works">Projects
+                    <ul class="nodisplay projectList">
+                        <li data-dropdown="drop!"><a href="#" data-dropdown="drop!">Nosapp.app</a></li>
+                        <li data-dropdown="drop!"><a href="#" data-dropdown="drop!">Zelcore.Finance</a></li>
                     </ul>
                 </li>
-                <li class="listItems  item4">Journal Entries
-                    <ul>
-                        <li><a href="#">Popular</a></li>
-                        <li><a href="#">Oldest</a></li>
-                        <li><a href="#">Newest</a></li>
+                <li class="listItems item4" data-journal="notepad">Journal Entries
+                    <ul class="nodisplay journalList">
+                        <li data-dropdown="drop!"><a data-dropdown="drop!" href="#">Popular</a></li>
+                        <li data-dropdown="drop!"><a data-dropdown="drop!" href="#">Oldest</a></li>
+                        <li data-dropdown="drop!"><a data-dropdown="drop!" href="#">Newest</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
     <body>
+                <main>
+                    <section class="forms">
+                        <form>
+                            <input
+                            class="userTitle"
+                            type="text"
+                            name="userTitle"
+                            id="0"
+                            placeholder="Title"
+                            >
+                            <input
+                            class="userInput"
+                            type="text"
+                            name="userInput"
+                            id="1"
+                            placeholder="What Have We Learned?"
+                            >
+                            <input
+                            class="userDate"
+                            type="date"
+                            name="userDate"
+                            id="2"
+                            >
+                            <input
+                            class="userImage"
+                            type="image"
+                            name="userImage"
+                            id="3"
+                            >
+                            <input
+                            class="userUrl"
+                            type="url"
+                            name="website"
+                            id="4"
+                            placeholder="Website?"
+                            >
+                            <input
+                            class="userFile"
+                            type="file"
+                            name="helpfulFiles"
+                            id="4"
+                            >
+                            <input
+                            class="userEmail"
+                            type="email"
+                            name="email"
+                            id="4"
+                            placeholder="Email?"
+                            >
+                            <button class="postBtn" type="submit" class="submitBtn">Post</button>
+                        </form>
+                    </section>
 
-
-
+                    <section class="renderedEls">
+                    <h1 class="title">
+                        My Title
+                    </h1>
+                    <p class="content">
+                        The content within the title
+                        will all go here.? Does it wrap?
+                        does it work properly?
+                        is it funcitoning.? oh ok ehre we go
+                        more and more problems..  How does the
+                        writing change once in grids? 
+                        and there's more lettering.. 
+                        hmm interesting. dfasfdjhkf
+                        dkjalsfdjlaskdfjl
+                        dlafksjl;kdfjl;sadkjfl;k
+                        The content within the title
+                        will all go here.? Does it wrap?
+                        does it work properly?
+                        is it funcitoning.? oh ok ehre we go
+                        more and more problems..  How does the
+                        writing change once in grids? 
+                        and there's more lettering.. 
+                        hmm interesting. dfasfdjhkf
+                        dkjalsfdjlaskdfjl
+                        dlafksjl;kdfjl;sadkjfl;k
+                    </p>
+                    <p class="userName">Johnny</p>
+                    <p class="userEmail">Email@blue.com</p>
+                    <p class="year">1999</p>
+                    <p class="website">wkdi.wioj.com</p>
+                    <p class="file">the file</p>
+                  </div>
+                </main>
 
         <script type="module" src="./journal.js"></script>
     </body>
