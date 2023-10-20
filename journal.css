@@ -4,7 +4,20 @@
     box-sizing: border-box;
 }
 
-/* root Variables */
+/*
+██████   ██████   ██████  ████████
+██   ██ ██    ██ ██    ██    ██
+██████  ██    ██ ██    ██    ██
+██   ██ ██    ██ ██    ██    ██
+██   ██  ██████   ██████     ██
+
+██    ██  █████  ██████  ██  █████  ██████  ██      ███████ ███████
+██    ██ ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██      ██
+██    ██ ███████ ██████  ██ ███████ ██████  ██      █████   ███████
+ ██  ██  ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██           ██
+  ████   ██   ██ ██   ██ ██ ██   ██ ██████  ███████ ███████ ███████
+
+*/
 :root {
     --yellow: #F2F230;
     --purple: #957FEF;
@@ -14,7 +27,19 @@
 
 }
 
-/* navigation section  */
+/*
+███    ██  █████  ██    ██ ██  ██████   █████  ████████ ██  ██████  ███    ██
+████   ██ ██   ██ ██    ██ ██ ██       ██   ██    ██    ██ ██    ██ ████   ██
+██ ██  ██ ███████ ██    ██ ██ ██   ███ ███████    ██    ██ ██    ██ ██ ██  ██
+██  ██ ██ ██   ██  ██  ██  ██ ██    ██ ██   ██    ██    ██ ██    ██ ██  ██ ██
+██   ████ ██   ██   ████   ██  ██████  ██   ██    ██    ██  ██████  ██   ████
+
+██████   █████  ██████
+██   ██ ██   ██ ██   ██
+██████  ███████ ██████
+██   ██ ██   ██ ██   ██
+██████  ██   ██ ██   ██
+*/
 
 header {
     position: fixed;
@@ -28,12 +53,8 @@ header {
     color: var(--yellow);
 }
 
-.display {
+.nodisplay {
     display: none;
-}
-
-ul:hover .display {
-    display: block;
 }
 
 ul {
@@ -45,11 +66,14 @@ ul {
     list-style: none;
 
     display: grid;
-    width: 100vw;
+    width: 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
         "one two three four"
     ;
+    justify-content: baseline;
+    align-items: baseline;
+    text-align: center;
 }
 
 .item1 {
@@ -65,12 +89,13 @@ ul {
     grid-area: "four";
 }
 
-li {
+li,a {
     font-size: 2.2vw;
     background-color: var(--purple);
     color: var(--yellow);
+    text-decoration: none;
 }
-li:hover {
+li:hover, a:hover {
     color: var(--purple);
     background-color: var(--blue);
 }
@@ -79,7 +104,16 @@ li:hover {
 
 
 
+/*
 
+██████   ██████  ██████  ██    ██
+██   ██ ██    ██ ██   ██  ██  ██
+██████  ██    ██ ██   ██   ████
+██   ██ ██    ██ ██   ██    ██
+██████   ██████  ██████     ██
+
+
+*/
 
 
 
