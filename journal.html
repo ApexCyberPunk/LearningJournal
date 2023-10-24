@@ -9,17 +9,16 @@
     <header>
         <nav class="navBarBtn">
             <ul class="mainnorderedList">
-                <li class="listItems  item1" data-learning="smart">Learning Path
+                <li class="listItems  item1" data-learning="smart">Home
                     <ul class="nodisplay pathList">
-                        <li data-dropdown="drop!"  class="listItems dropdownItems"><a data-dropdown="drop!" href="#">HTML</a></li>
-                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">Javascript</a></li>
-                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">CSS</a></li>
-                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">React</a></li>
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="journal.html">Make A Post</a></li>
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">View Posts</a></li>
                     </ul>
                 </li>
                 <li  class="listItems item2" data-contact="getInTouch">Contact
                     <ul class="nodisplay contactList">
                         <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!">Github</a></li>
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a href="aboutMe.html" data-dropdown="drop!">About Me</a></li>
                     </ul>
                 </li>
                 <li class="listItems item3" data-projects="works">Projects
@@ -38,97 +37,75 @@
             </ul>
         </nav>
     </header>
+    <!-- body -->
     <body>
                 <main>
-                    <section class="forms">
-                        <form>
+                    <section >
+                        <form class="forms">
                             <input
-                            class="userTitle"
+                            class="titleInput"
                             type="text"
-                            name="userTitle"
+                            name="Title"
                             id="0"
                             placeholder="Title"
+                            required
                             >
-                            <input
-                            class="userInput"
-                            type="text"
-                            name="userInput"
+                            <textarea
+                            style="resize: none;"
+                            rows="6"
+                            maxlength="300"
+                            minlength="10"
+                            class="textInput"
+                            name="Content"
                             id="1"
                             placeholder="What Have We Learned?"
-                            >
+                            required
+                            ></textarea>
                             <input
-                            class="userDate"
+                            class="dateInput"
                             type="date"
-                            name="userDate"
+                            name="DateOfPost"
                             id="2"
                             >
                             <input
-                            class="userImage"
-                            type="image"
-                            name="userImage"
-                            id="3"
-                            >
-                            <input
-                            class="userUrl"
+                            class="urlInput"
                             type="url"
-                            name="website"
-                            id="4"
+                            name="Website"
+                            id="3"
                             placeholder="Website?"
                             >
                             <input
-                            class="userFile"
+                            class="fileInput"
                             type="file"
-                            name="helpfulFiles"
+                            name="Files"
                             id="4"
                             >
                             <input
-                            class="userEmail"
+                            autocomplete="email"
+                            class="emailInput"
                             type="email"
-                            name="email"
-                            id="4"
+                            name="Email"
+                            id="5"
                             placeholder="Email?"
                             >
                             <button class="postBtn" type="submit" class="submitBtn">Post</button>
                         </form>
                     </section>
-
-                    <section class="renderedEls">
-                    <h1 class="title">
-                        My Title
-                    </h1>
-                    <p class="content">
-                        The content within the title
-                        will all go here.? Does it wrap?
-                        does it work properly?
-                        is it funcitoning.? oh ok ehre we go
-                        more and more problems..  How does the
-                        writing change once in grids? 
-                        and there's more lettering.. 
-                        hmm interesting. dfasfdjhkf
-                        dkjalsfdjlaskdfjl
-                        dlafksjl;kdfjl;sadkjfl;k
-                        The content within the title
-                        will all go here.? Does it wrap?
-                        does it work properly?
-                        is it funcitoning.? oh ok ehre we go
-                        more and more problems..  How does the
-                        writing change once in grids? 
-                        and there's more lettering.. 
-                        hmm interesting. dfasfdjhkf
-                        dkjalsfdjlaskdfjl
-                        dlafksjl;kdfjl;sadkjfl;k
-                    </p>
-                    <p class="userName">Johnny</p>
-                    <p class="userEmail">Email@blue.com</p>
-                    <p class="year">1999</p>
-                    <p class="website">wkdi.wioj.com</p>
-                    <p class="file">the file</p>
-                  </div>
+                <section>
+                    <section class="postContainer">
+                    </section>
+                    </div>
                 </main>
-
+                <script type="module" src="./classes.js"></script>
+        <script type="module" src="./posted.js"></script>
         <script type="module" src="./journal.js"></script>
     </body>
     <footer>
+
+        <!--
+            Need to add footer....
+         -->
+
 
     </footer>
 </html>

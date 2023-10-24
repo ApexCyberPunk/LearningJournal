@@ -1,16 +1,44 @@
+// ██ ███    ███ ██████   ██████  ██████  ████████ ███████
+// ██ ████  ████ ██   ██ ██    ██ ██   ██    ██    ██
+// ██ ██ ████ ██ ██████  ██    ██ ██████     ██    ███████
+// ██ ██  ██  ██ ██      ██    ██ ██   ██    ██         ██
+// ██ ██      ██ ██       ██████  ██   ██    ██    ███████
+
+import postObj from './classes.js'
 
 
-//  ██████  ██████  ███    ██ ███████ ████████
-// ██      ██    ██ ████   ██ ██         ██
-// ██      ██    ██ ██ ██  ██ ███████    ██
-// ██      ██    ██ ██  ██ ██      ██    ██
-//  ██████  ██████  ██   ████ ███████    ██
+
+// ███████ ████████  █████  ████████ ███████
+// ██         ██    ██   ██    ██    ██
+// ███████    ██    ███████    ██    █████
+//      ██    ██    ██   ██    ██    ██
+// ███████    ██    ██   ██    ██    ███████
 
 // ██    ██  █████  ██████  ██  █████  ██████  ██      ███████ ███████
 // ██    ██ ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██      ██
 // ██    ██ ███████ ██████  ██ ███████ ██████  ██      █████   ███████
 //  ██  ██  ██   ██ ██   ██ ██ ██   ██ ██   ██ ██      ██           ██
 //   ████   ██   ██ ██   ██ ██ ██   ██ ██████  ███████ ███████ ███████
+
+
+
+let postArr = []
+
+const isPastListCleared = false
+
+
+
+
+const getGlobalLocallyStoredArr = localStorage.getItem('postArr')
+const globalParsedStorage = JSON.parse(getGlobalLocallyStoredArr)
+
+
+
+// ██████   ██████  ███    ███ ███████
+// ██   ██ ██    ██ ████  ████ ██
+// ██   ██ ██    ██ ██ ████ ██ ███████
+// ██   ██ ██    ██ ██  ██  ██      ██
+// ██████   ██████  ██      ██ ███████
 
 
 
@@ -21,12 +49,12 @@
 // const dropDownItemsEl = document.querySelector('.dropdownItems')
 // const barEl = document.querySelector('.bar')
 
-// let isDisplayed = {
-//     learning: false,
-//     contact: false,
-//     projects: false,
-//     journal: false
-// }
+
+const postContainer = document.querySelector('.postContainer')
+const postContainerAboutMe = document.querySelector('.postContainerAM')
+const renderEl = document.querySelector('.renderedEls')
+const formsEl = document.querySelector('.forms')
+
 
 
 // ███████ ██    ██ ███████ ███    ██ ████████
@@ -42,21 +70,41 @@
 // ██      ██      ██    ██    ██      ██  ██ ██ ██      ██   ██      ██
 // ███████ ██ ███████    ██    ███████ ██   ████ ███████ ██   ██ ███████
 
+ if (formsEl) {
+    formsEl.addEventListener('submit', (e)=> {
+        e.preventDefault()
 
-// document.addEventListener('click', (event)=>{
-//      event.target.dataset.learning ? showNavigation(event)
-//      : event.target.dataset.contact ? showNavigation(event)
-//      : event.target.dataset.projects ? showNavigation(event)
-//      : event.target.dataset.journal ? showNavigation(event)
-//      : ""
-// })
+        const submittedPostData = new FormData(formsEl)
 
-// document.addEventListener('mouseout', (event)=>{
-//     event.target.dataset.dropdown ? closeNavigation(event)
-//     : ""
+        const postTitle = submittedPostData.get('Title')
+        const postContent = submittedPostData.get('Content')
+        const postDate = submittedPostData.get('DateOfPost')
+        const postedWebsite = submittedPostData.get('Website')
+        const postedFiles = submittedPostData.get('Files')
+        const postedEmail = submittedPostData.get('Email')
 
-//     console.log(event.target.dataset)
-// })
+
+
+        let newPost = {
+            title: `${postTitle}`,
+            content: `${postContent}`,
+            date: `${postDate}`,
+            website: `${postedWebsite}`,
+            files: `${postedFiles}`,
+            email: `${postedEmail}`
+        }
+
+        postArr.push(newPost)
+
+        // formsEl.reset()
+
+        renderPosts(postTitle, postContent, postDate, postedWebsite, postedFiles, postedEmail)
+        saveLocalData()
+    })
+
+ }
+
+
 
 
 // ███████ ██    ██ ███    ██  ██████ ████████ ██  ██████  ███    ██ ███████
@@ -66,40 +114,85 @@
 // ██       ██████  ██   ████  ██████    ██    ██  ██████  ██   ████ ███████
 
 
-// const showNavigation = (clickedItem)=> {
+//  _ _   ___   _ _    __| |  ___   _ _
+// | '_| / -_) | ' \  / _` | / -_) | '_|
+// |_|   \___| |_||_| \__,_| \___| |_|
 
-//         if (clickedItem.target.dataset.learning) {
-//                 if (!isDisplayed.learning) {
-//                     pathListEl.style.display = "block"
-//                     isDisplayed.learning = true
-//                 }
-//         }
-
-// }
-
-// const closeNavigation = (clickedItem)=> {
-//     if (clickedItem.target.dataset.dropdown) {
-//         if (isDisplayed.learning) {
-//             pathListEl.style.display = "none"
-//             isDisplayed.learning = false
-//         }
-// }
-// }
+// titleP .. P for parameter...
 
 
+export let renderPosts =
+(titleP, contentP, dateP, websiteP, filesP, emailP)=>
+            {
 
-// else {
-//     pathListEl.style.display = "none"
-//     isDisplayed.learning = false
-// }
+    const div = document.createElement('div')
+    div.classList.add("renderedEls")
+    postContainer.appendChild(div)
+
+    const h1 = document.createElement('h1')
+    h1.classList.add('title')
+    h1.textContent = titleP
+    div.appendChild(h1)
+
+    const p1 = document.createElement('p')
+    p1.classList.add('content')
+    p1.textContent = contentP
+    div.appendChild(p1)
+
+    const p3 = document.createElement('p')
+    p3.classList.add('userEmail')
+    p3.textContent = emailP
+    div.appendChild(p3)
+
+    const p4 = document.createElement('p')
+    p4.classList.add('year')
+    p4.textContent = dateP
+    div.appendChild(p4)
+
+    const p5 = document.createElement('p')
+    p5.classList.add('website')
+    p5.textContent = websiteP
+    div.appendChild(p5)
+
+    const p6 = document.createElement('p')
+    p6.classList.add('file')
+    p6.textContent = filesP
+    div.appendChild(p6)
+}
+
+let saveLocalData = ()=> {
 
 
+        console.log("SLDfunction", postArr)
+        let postArrString = JSON.stringify(postArr)
+        let setlocallyStoredArr = localStorage.setItem("postArr", postArrString)
+        let getlocallyStoredArr = localStorage.getItem('postArr')
+
+        console.log("localStorage", localStorage)
+        console.log("get local", getlocallyStoredArr)
+        let parsedStorage = JSON.parse(getlocallyStoredArr)
+
+        console.log("parsedStorage", parsedStorage)
+}
 
 
+if (globalParsedStorage) {
+    postArr = globalParsedStorage
+        globalParsedStorage.map(storedItem => {
+     const {title, content, date, website, files, email} = storedItem
+
+        renderPosts(title, content, date, website, files, email)
+            console.log(globalParsedStorage)
+        });
+}
+
+export let clearLocalData = () => {
+
+localStorage.clear()
+
+}
 
 
+export default postArr
 
-
-
-
-
+// clearLocalData()

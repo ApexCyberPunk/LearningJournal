@@ -21,8 +21,8 @@
 */
 
 :root {
-    --yellow: #F2F230;
-    --purple: #957FEF;
+    --yellow: #ffffaa;
+    --purple: #523ea3;
     --orange: #FF6700;
     --black: #12130F;
     --blue: #23F3FB;
@@ -41,6 +41,12 @@
 ██████  ███████ ██████
 ██   ██ ██   ██ ██   ██
 ██████  ██   ██ ██   ██
+*/
+
+/* 
+
+Needs site logo, and name, and ect.. with links..
+
 */
 
 header {
@@ -152,49 +158,105 @@ body {
 
 
 
-/* form input section */
+/*
+
+   __
+  / _|   ___    _ __   _ __ ___    ___
+ | |_   / _ \  | '__| | '_ ` _ \  / __|
+ |  _| | (_) | | |    | | | | | | \__ \
+ |_|    \___/  |_|    |_| |_| |_| |___/
 
 
-button {
-    width: 5em;
-    height: 5em;
+*/
+
+
+.forms {
+    display: grid;
+    grid-template-areas:
+    "titleInput"
+    "textInput"
+    "dateInput"
+    "emailInput"
+    "urlInput"
+    "fileInput"
+    "postBtn"
+    ;
+}
+
+.titleInput,
+.textInput,
+.dateInput,
+.urlInput,
+.fileInput,
+.emailInput {
+ width: 50%;
+ margin: 0 auto;
+}
+
+.postBtn {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.titleInput {
+
+    grid-area: titleInput;
+
+}
+.textInput {
+    grid-area: textInput;
+}
+.dateInput {
+    grid-area: dateInput;
+}
+.imageInput {
+    grid-area: imageInput;
+}
+.urlInput {
+    grid-area: urlInput;
+}
+.fileInput {
+    grid-area: fileInput;
+}
+.emailInput {
+    grid-area: emailInput;
+}
+.postBtn {
+    grid-area: postBtn;
 }
 
 
 
-/* rendered content 
 
-    <section class="renderedEls">
-                        <h1 class="title">
-                            My Title
-                        </h1>
-                        <p class="content">
-                            The content within the title
-                        </p>
-                        <p class="userName">Johnny</p>
-                        <p class="userEmail">Email@blue.com</p>
-                        <p class="year">1999</p>
-                        <p class="website">wkdi.wioj.com</p>
-                        <p class="file">the file</p>
-                    </section>
 
+/*
+   ___    ___    _ __   | |_    ___   _ __   | |_
+  / __|  / _ \  | '_ \  | __|  / _ \ | '_ \  | __|
+ | (__  | (_) | | | | | | |_  |  __/ | | | | | |_
+  \___|  \___/  |_| |_|  \__|  \___| |_| |_|  \__|
 */
+
+
+.postContainer {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 .renderedEls {
     font-family: 'cursive','Courier New', Courier, monospace;
-    background: var(--orange);
+    background: var(--purple);
     width: 70vw;
     height: 40vh;
-    color: var(--black);
+    color: var(--yellow);
     text-align: center;
     border-radius: 30px;
     margin: 1rem auto ;
     display: grid;
     grid-template-areas:
-        "title title"
-        "texts texts"
-        "userName year"
-        "website file"
+        "title title title"
+        "texts texts texts"
+        "userName . year"
+        "website . file"
     ;
     box-shadow: 0 0 50px var(--yellow);
     overflow-y: auto;
@@ -203,7 +265,7 @@ button {
 
 .title {
     font-size: 8vw;
-    border-bottom: 1vw solid var(--black);
+    border-bottom: 1vw solid var(--yellow);
     grid-area: title;
 }
 .content {
@@ -228,6 +290,72 @@ button {
 
 
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--yellow);
+    border-radius: 8%;
+  }
+
+  ::-webkit-scrollbar-track:active {
+    background: var(--orange);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--purple);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--black);
+  }
+
+
+  .drakeLyrics {
+    font-size: inherit;
+    background: none;
+    color: var(--yellow);
+  }
+
+  .drakeLyrics:not(.active) {
+    font-size: inherit;
+    background: none;
+    color: var(--yellow);
+  }
+
+  
+
+
+  /* 
+  
+  about me page
+  
+  */
+
+
+  .AboutMeBody {
+    background-color: var(--purple);
+    color: var(--yellow);
+  }
+.AboutMePhoto {
+    border-radius: 50%;
+}
+
+.EducationTitle {
+    text-align: center;
+}
+
+.RecentPostTitle {
+    align-content: center;
+    align-self: center;
+    margin: 0 auto;
+}
+
 
 /*
 
@@ -245,11 +373,21 @@ button {
     .item1:active li, .item2:active li, .item3:active li, .item4:active li {
         display: block;
     }
-    
-
 }
 
 @font-face {
     font-family: "cursive";
     src: url(./Fonts/Cedarville-Cursive.ttf);
 }
+
+
+/* need footer also.. */
+
+
+/* 
+Home page... featured article, and recent posts below..
+page with full article, with image... then below, recent posts...
+
+About me, with image, readMe, and bio... and below.. recent posts...
+
+*/
