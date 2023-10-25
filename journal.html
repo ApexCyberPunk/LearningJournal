@@ -12,7 +12,7 @@
                 <li class="listItems  item1" data-learning="smart">Home
                     <ul class="nodisplay pathList">
                         <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="journal.html">Make A Post</a></li>
-                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="#">View Posts</a></li>
+                        <li data-dropdown="drop!" class="listItems dropdownItems"><a data-dropdown="drop!" href="viewPosts.html">View Posts</a></li>
                     </ul>
                 </li>
                 <li  class="listItems item2" data-contact="getInTouch">Contact
@@ -39,9 +39,9 @@
     </header>
     <!-- body -->
     <body>
-                <main>
-                    <section >
-                        <form class="forms">
+                <main> 
+                    <section class="formSection" >
+                        <form class="forms">Write Post
                             <input
                             class="titleInput"
                             type="text"
@@ -91,14 +91,17 @@
                             <button class="postBtn" type="submit" class="submitBtn">Post</button>
                         </form>
                     </section>
-                <section>
+
                     <section class="postContainer">
                     </section>
-                    </div>
                 </main>
-                <script type="module" src="./classes.js"></script>
-        <script type="module" src="./posted.js"></script>
+
+
+        <!-- <script type="module" src="./classes.js"></script>
+        <script type="module" src="database.js"></script>
+        <script type="module" src="./posted.js"></script> -->
         <script type="module" src="./journal.js"></script>
+    
     </body>
     <footer>
 
@@ -109,6 +112,3 @@
 
     </footer>
 </html>
-
-
-<!-- <i class="fa-solid fa-bars"></i> -->

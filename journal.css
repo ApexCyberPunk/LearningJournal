@@ -43,7 +43,7 @@
 ██████  ██   ██ ██   ██
 */
 
-/* 
+/*
 
 Needs site logo, and name, and ect.. with links..
 
@@ -60,8 +60,6 @@ header {
     background-color: var(--purple);
     color: var(--yellow);
 }
-
-
 
 ul {
     font-size: 2.2vw;
@@ -181,6 +179,15 @@ body {
     "fileInput"
     "postBtn"
     ;
+    text-align: center;
+    color: yellow;
+    font-weight: bold;
+    margin: 0 15vw;
+    background-color: #9d8fd4;
+    border: 5px solid var(--yellow);
+    border-radius: 10px;
+    padding: 2vw;
+    font-size: 5vw;
 }
 
 .titleInput,
@@ -190,7 +197,12 @@ body {
 .fileInput,
 .emailInput {
  width: 50%;
- margin: 0 auto;
+ inset: 0;
+ margin: auto;
+}
+
+.formSection {
+
 }
 
 .postBtn {
@@ -240,12 +252,13 @@ body {
 .postContainer {
     display: flex;
     flex-direction: column-reverse;
+    padding: -20px;
 }
 
 .renderedEls {
     font-family: 'cursive','Courier New', Courier, monospace;
     background: var(--purple);
-    width: 70vw;
+    width: 50vh;
     height: 40vh;
     color: var(--yellow);
     text-align: center;
@@ -344,6 +357,7 @@ body {
   }
 .AboutMePhoto {
     border-radius: 50%;
+    width: 20vw;
 }
 
 .EducationTitle {
@@ -380,6 +394,15 @@ body {
     src: url(./Fonts/Cedarville-Cursive.ttf);
 }
 
+@media (min-width: 900px) {
+    .postContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    
+}
 
 /* need footer also.. */
 

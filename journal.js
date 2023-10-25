@@ -4,7 +4,51 @@
 // ██ ██  ██  ██ ██      ██    ██ ██   ██    ██         ██
 // ██ ██      ██ ██       ██████  ██   ██    ██    ███████
 
-import postObj from './classes.js'
+
+import {appSettings} from './database.js'
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+// fire base section
+
+
+
+
+const getGlobalLocallyStoredArr = localStorage.getItem('postArr')
+
+const databaseOfThingsLearnedArr = []
+
+const app = initializeApp(appSettings)
+const database = getDatabase(app)
+const thingsLearnedInDB = ref(database, "LearnedLessons")
+
+
+
+onValue(thingsLearnedInDB, (snapshot)=> {
+
+    let arrayOfThingsLearned = Object.values(snapshot.val())
+
+    console.log("snapshot",snapshot.val())
+    console.log("array Of snapshot", arrayOfThingsLearned)
+
+    databaseOfThingsLearnedArr.push(arrayOfThingsLearned)
+
+    let eachJournalEntry = arrayOfThingsLearned.forEach((entry)=> {
+
+        // console.log(entry) .. would have to push...
+
+    })
+})
+
+console.log("object for updating postArr on load", databaseOfThingsLearnedArr)
+
+
+
+
+
+
+
+
 
 
 
@@ -24,13 +68,17 @@ import postObj from './classes.js'
 
 let postArr = []
 
+console.log("postArr On load", postArr)
+
 const isPastListCleared = false
 
+// const getGlobalLocallyStoredArr = localStorage.getItem('postArr')
+
+// IF there are items in the database, put it in global parsed storage..
 
 
-
-const getGlobalLocallyStoredArr = localStorage.getItem('postArr')
 const globalParsedStorage = JSON.parse(getGlobalLocallyStoredArr)
+
 
 
 
@@ -83,6 +131,7 @@ const formsEl = document.querySelector('.forms')
         const postedFiles = submittedPostData.get('Files')
         const postedEmail = submittedPostData.get('Email')
 
+        console.log("postArr before submitted form", postArr)
 
 
         let newPost = {
@@ -95,11 +144,12 @@ const formsEl = document.querySelector('.forms')
         }
 
         postArr.push(newPost)
-
+        push(thingsLearnedInDB, JSON.stringify(newPost))
         // formsEl.reset()
 
         renderPosts(postTitle, postContent, postDate, postedWebsite, postedFiles, postedEmail)
         saveLocalData()
+
     })
 
  }
@@ -119,6 +169,10 @@ const formsEl = document.querySelector('.forms')
 // |_|   \___| |_||_| \__,_| \___| |_|
 
 // titleP .. P for parameter...
+
+let updateDatabase = ()=> {
+
+}
 
 
 export let renderPosts =
@@ -160,35 +214,47 @@ export let renderPosts =
     div.appendChild(p6)
 }
 
-let saveLocalData = ()=> {
+
+// need to get the stored data... pass it into the
+// postDataP parameter... then....
 
 
-        console.log("SLDfunction", postArr)
+let saveLocalData = (postDataP)=> {
+
         let postArrString = JSON.stringify(postArr)
-        let setlocallyStoredArr = localStorage.setItem("postArr", postArrString)
-        let getlocallyStoredArr = localStorage.getItem('postArr')
 
-        console.log("localStorage", localStorage)
-        console.log("get local", getlocallyStoredArr)
-        let parsedStorage = JSON.parse(getlocallyStoredArr)
+        localStorage.setItem("postArr", postArrString)
+        let whatsInLocalStorage = localStorage.getItem('postArr')
+        console.log("on Load, what's in local Storage", whatsInLocalStorage)
 
-        console.log("parsedStorage", parsedStorage)
 }
 
 
+
 if (globalParsedStorage) {
+
     postArr = globalParsedStorage
+
         globalParsedStorage.map(storedItem => {
-     const {title, content, date, website, files, email} = storedItem
+
+        const {title, content, date, website, files, email} = storedItem
 
         renderPosts(title, content, date, website, files, email)
-            console.log(globalParsedStorage)
+
         });
 }
 
 export let clearLocalData = () => {
 
 localStorage.clear()
+
+}
+
+let getFeaturedPost = () => {
+    console.log("randomize a featured post in here")
+}
+
+let uploadToDatabase = () => {
 
 }
 
