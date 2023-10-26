@@ -1,1 +1,1 @@
-This is a software for implementing a Journal-like element that will render into the page as content from users.
+This is a software for a journal, using firebase as the database. Journal updates in real time across all pages, and is responsive.
