@@ -11,12 +11,9 @@ import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com
 
 // fire base section
 
-
-
+let postArr = []
 
 const getGlobalLocallyStoredArr = localStorage.getItem('postArr')
-
-const databaseOfThingsLearnedArr = []
 
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
@@ -31,25 +28,21 @@ onValue(thingsLearnedInDB, (snapshot)=> {
     console.log("snapshot",snapshot.val())
     console.log("array Of snapshot", arrayOfThingsLearned)
 
-    databaseOfThingsLearnedArr.push(arrayOfThingsLearned)
+    let eachJournalEntry = arrayOfThingsLearned.map((entry)=> {
 
-    let eachJournalEntry = arrayOfThingsLearned.forEach((entry)=> {
 
-        // console.log(entry) .. would have to push...
+          return JSON.parse(entry)
 
     })
+
+    postArr = eachJournalEntry
+    saveLocalData()
+
 })
 
-console.log("object for updating postArr on load", databaseOfThingsLearnedArr)
 
 
-
-
-
-
-
-
-
+const globalParsedStorage = JSON.parse(getGlobalLocallyStoredArr)
 
 
 // ███████ ████████  █████  ████████ ███████
@@ -66,20 +59,11 @@ console.log("object for updating postArr on load", databaseOfThingsLearnedArr)
 
 
 
-let postArr = []
+
 
 console.log("postArr On load", postArr)
 
 const isPastListCleared = false
-
-// const getGlobalLocallyStoredArr = localStorage.getItem('postArr')
-
-// IF there are items in the database, put it in global parsed storage..
-
-
-const globalParsedStorage = JSON.parse(getGlobalLocallyStoredArr)
-
-
 
 
 // ██████   ██████  ███    ███ ███████
@@ -154,9 +138,6 @@ const formsEl = document.querySelector('.forms')
 
  }
 
-
-
-
 // ███████ ██    ██ ███    ██  ██████ ████████ ██  ██████  ███    ██ ███████
 // ██      ██    ██ ████   ██ ██         ██    ██ ██    ██ ████   ██ ██
 // █████   ██    ██ ██ ██  ██ ██         ██    ██ ██    ██ ██ ██  ██ ███████
@@ -169,10 +150,6 @@ const formsEl = document.querySelector('.forms')
 // |_|   \___| |_||_| \__,_| \___| |_|
 
 // titleP .. P for parameter...
-
-let updateDatabase = ()=> {
-
-}
 
 
 export let renderPosts =
@@ -214,12 +191,8 @@ export let renderPosts =
     div.appendChild(p6)
 }
 
-
-// need to get the stored data... pass it into the
-// postDataP parameter... then....
-
-
 let saveLocalData = (postDataP)=> {
+
 
         let postArrString = JSON.stringify(postArr)
 
@@ -250,9 +223,14 @@ localStorage.clear()
 
 }
 
+
+
 let getFeaturedPost = () => {
     console.log("randomize a featured post in here")
 }
+
+
+
 
 let uploadToDatabase = () => {
 
