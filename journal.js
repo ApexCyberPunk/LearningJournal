@@ -226,6 +226,75 @@ localStorage.clear()
 }
 
 
+const featuredPostEl = document.querySelector('.featuredPost')
+console.log(featuredPostEl)
+
+renderFeaturePost()
+
+function renderFeaturePost() {
+
+    // if (featuredPostEl) {
+    //     featuredPostEl.remove()
+    // }
+    console.log("postArr length", postArr.length)
+    let featuredPostObj = getRandomPost();
+
+    console.log("getRandomPost()", getRandomPost())
+
+      function RenderFeaturedPost() {
+            const {content, date, email, files, title, website} = featuredPostObj
+
+            const div = document.createElement('div')
+            div.classList.add("FeaturedPostContainer")
+            featuredPostEl.appendChild(div)
+
+            const h1 = document.createElement('h1')
+            h1.classList.add('featuredPostTitle')
+            h1.textContent = title
+            div.appendChild(h1)
+
+            const p1 = document.createElement('p')
+            p1.classList.add('featuredPostcontent')
+            p1.textContent = content
+            div.appendChild(p1)
+
+            const p3 = document.createElement('p')
+            p3.classList.add('featuredPostEmail')
+            p3.textContent = email
+            div.appendChild(p3)
+
+            const p4 = document.createElement('p')
+            p4.classList.add('featuredPostYear')
+            p4.textContent = dateP
+            div.appendChild(p4)
+
+            const p5 = document.createElement('p')
+            p5.classList.add('featuredPostWebsite')
+            p5.textContent = website
+            div.appendChild(p5)
+
+            const p6 = document.createElement('p')
+            p6.classList.add('featuredPostFile')
+            p6.textContent = files
+            div.appendChild(p6)
+
+        }
+
+
+        RenderFeaturedPost()
+
+
+
+
+
+
+}
+function getRandomPost() {
+        return postArr[getRandomIndex()]
+}
+function getRandomIndex() {
+    return Math.floor(Math.random() * postArr.length)
+}
 
 let getFeaturedPost = () => {
     console.log("randomize a featured post in here")
