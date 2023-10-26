@@ -26,6 +26,7 @@
     --orange: #FF6700;
     --black: #12130F;
     --blue: #23F3FB;
+    --lightPurple:  #9d8fd4;
 
 }
 
@@ -202,12 +203,31 @@ body {
 }
 
 .formSection {
-
+    width: 100%;
 }
 
 .postBtn {
-    margin: 0 auto;
+    margin: 5px auto;
     width: 50%;
+    padding: 1vw;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 0 10px purple;
+    background-color: var(--yellow);
+    color: var(--purple);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.postBtn:hover {
+        margin: 5px auto;
+        width: 50%;
+        padding: 1vw;
+        border-radius: 15px;
+        border: none;
+        box-shadow: 0 0 10px var(--yellow);
+        background-color: whitesmoke;
+        color: var(--purple);
 }
 
 .titleInput {
@@ -278,11 +298,13 @@ body {
 
 .title {
     font-size: 8vw;
-    border-bottom: 1vw solid var(--yellow);
+    background-color: var(--yellow);
+    color: var(--purple);
+    border-bottom: 1vmin solid var(--lightPurple);
     grid-area: title;
 }
 .content {
-    font-size: 2.5vw;
+    font-size: 3.9vw;
     font-weight: 600;
     line-height: 1.25;
     grid-area: texts;
@@ -332,13 +354,13 @@ body {
   .drakeLyrics {
     font-size: inherit;
     background: none;
-    color: var(--yellow);
+    color: var(--purple);
   }
 
   .drakeLyrics:not(.active) {
     font-size: inherit;
     background: none;
-    color: var(--yellow);
+    color: var(--purple);
   }
 
   
@@ -350,24 +372,60 @@ body {
   
   */
 
+  .aboutMe {
+    margin: 0 auto;
+  }
 
   .AboutMeBody {
     background-color: var(--purple);
     color: var(--yellow);
   }
+
+  .AboutMeTitle {
+    text-align: center;
+    font-size: 4vw;
+
+}
+
 .AboutMePhoto {
     border-radius: 50%;
     width: 20vw;
+    box-shadow: 0 0 100px purple;
+    border: 2px solid var(--yellow);
+    margin-left: 40vw;
+    margin-top: 2vw;
+    border-bottom: 10px solid rgb(245, 216, 254);
 }
 
 .EducationTitle {
+    display: block;
     text-align: center;
+    width: 100%;
+    inset: 0;
+    margin: 0 auto;
+}
+
+.AboutMeList {
+    display: flex;
+    justify-content: center;
+}
+.AboutMeDescription {
+    /* margin: 5px auto; */
+    font-size: 2.5vw;
+    padding: 1.5vw;
+    background-color: var(--yellow);
+    color: var(--purple);
+    font-weight: bold;
+    line-height: 1.5;
+    border-radius: 4%;
+    justify-content: center;
 }
 
 .RecentPostTitle {
-    align-content: center;
-    align-self: center;
+    text-align: center;
     margin: 0 auto;
+    font-size: 3.5vw;
+    border-bottom: 5px solid var(--lightPurple);
 }
 
 
@@ -397,11 +455,101 @@ body {
 @media (min-width: 900px) {
     .postContainer {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 20px;
+        flex-direction: row-reverse;
+        flex-wrap: wrap-reverse;
+        padding: 10px;
+        margin: 0;
+    
+    }
+
+
+
+    .renderedEls {
+     
+        width: 31vw;
+        height: 40vh;
+
     }
     
+    
+    .title {
+
+        font-size: 3vw;
+    }
+
+
+
+
+    .AboutMeDescription {
+        margin: 2vmax 10vw;
+        font-size: 1.5vw;
+        padding: 1vw;
+        background-color: var(--yellow);
+        color: var(--purple);
+        font-weight: bold;
+        line-height: 1.5;
+        border-radius: 4%;
+    }
+
+    .content,
+    .userName,
+    .year,
+    .website,
+    .file {
+        width: 100%;
+        font-size: 2vw;
+        margin: 0 6px;
+    }
+
+}
+
+@media (min-width: 550px) and (max-width: 899px)  {
+    .postContainer {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap-reverse;
+        padding: 10px;
+        margin: 0;
+
+    }
+
+    .renderedEls {
+
+        width: 45vw;
+        height: 50vh;
+
+    }
+
+
+    .title {
+
+        font-size: 3vw;
+    }
+
+
+
+
+    .AboutMeDescription {
+        margin: 2vmax 10vw;
+        font-size: 1.5vw;
+        padding: 1vw;
+        background-color: var(--yellow);
+        color: var(--purple);
+        font-weight: bold;
+        line-height: 1.5;
+        border-radius: 4%;
+    }
+
+    .content,
+    .userName,
+    .year,
+    .website,
+    .file {
+        width: 100%;
+        font-size: 2vw;
+        margin: 0 6px;
+    }
+
 }
 
 /* need footer also.. */

@@ -102,6 +102,8 @@ const formsEl = document.querySelector('.forms')
 // ██      ██      ██    ██    ██      ██  ██ ██ ██      ██   ██      ██
 // ███████ ██ ███████    ██    ███████ ██   ████ ███████ ██   ██ ███████
 
+// <!-- add Date to forms .. so forms update with a specific date each time -->
+
  if (formsEl) {
     formsEl.addEventListener('submit', (e)=> {
         e.preventDefault()
@@ -129,7 +131,7 @@ const formsEl = document.querySelector('.forms')
 
         postArr.push(newPost)
         push(thingsLearnedInDB, JSON.stringify(newPost))
-        // formsEl.reset()
+        formsEl.reset()
 
         renderPosts(postTitle, postContent, postDate, postedWebsite, postedFiles, postedEmail)
         saveLocalData()
