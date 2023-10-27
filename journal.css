@@ -291,7 +291,7 @@ body {
         "userName . year"
         "website . file"
     ;
-    box-shadow: 0 0 50px var(--yellow);
+    box-shadow: 0 0 20px black;
     overflow-y: auto;
 }
 
@@ -424,6 +424,7 @@ body {
 .RecentPostTitle {
     text-align: center;
     margin: 0 auto;
+    margin-top: 25vh;
     font-size: 3.5vw;
     border-bottom: 5px solid var(--lightPurple);
 }
@@ -435,33 +436,56 @@ featured post
 
 */
 
+.featuredSectionBody, .RecentPostTitle {
+    background-color: var(--purple);
+    color: var(--yellow);
+}
+
+.featuredSectionContainer {
+    width: 90vw;
+    height: 50vh;
+}
+
 .featuredPostImage {
     display: block;
-    width: fit-content;
-    height: 60vh;
+    width: 35vw;
+    height: 40vw;
     margin: 0 auto;
     box-shadow: 0 0 200px black;
     border-radius: 20px;
-    background: black;
     
 }
 
 .FeaturedPostContainer {
     width: 100vw;
-    height: 60vh;
+    height: 30%;
 }
 
 .featuredPostTitle {
-
+    text-align: center;
+    font-size: 8vw;
+    background-color: var(--yellow);
+    color: var(--purple);
+    border-bottom: 1vmin solid var(--lightPurple);
+    box-shadow: 0 0 20px black;
+    margin: 5px auto;
 }
+
 .featuredPostContent {
+    font-size: 3.9vw;
+    font-weight: 600;
+    line-height: 1.25;
+    width: 100%;
 
+    text-wrap: wrap;
+    overflow-y: auto;
 }
 
-.featuredPostUserEmail {
-
+.fpTitle {
+    font-size: 5vw;
+    text-align: center;
+    text-decoration: underline;
 }
-
 
 
 

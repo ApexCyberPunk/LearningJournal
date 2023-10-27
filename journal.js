@@ -233,9 +233,6 @@ renderFeaturePost()
 
 function renderFeaturePost() {
 
-    // if (featuredPostEl) {
-    //     featuredPostEl.remove()
-    // }
     console.log("postArr length", postArr.length)
     let featuredPostObj = getRandomPost();
 
@@ -254,7 +251,7 @@ function renderFeaturePost() {
             div.appendChild(h1)
 
             const p1 = document.createElement('p')
-            p1.classList.add('featuredPostcontent')
+            p1.classList.add('featuredPostContent')
             p1.textContent = content
             div.appendChild(p1)
 
