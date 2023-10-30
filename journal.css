@@ -118,7 +118,7 @@ li {
     transition-duration: .5s;
 }
 
-li,a {
+li, li > a {
     font-size: 2.2vw;
     background-color: var(--purple);
     color: var(--yellow);
@@ -127,7 +127,7 @@ li,a {
     margin: 1%;
     border-radius: 10px;
 }
-li:hover, a:hover {
+li:hover a:hover {
     color: var(--purple);
     background-color: var(--blue);
     opacity: .8;
@@ -189,6 +189,14 @@ body {
     border-radius: 10px;
     padding: 2vw;
     font-size: 5vw;
+}
+
+input[type="file"] {
+    display: none;
+}
+i {
+    margin: 4%;
+    padding: 2%;
 }
 
 .titleInput,
@@ -273,13 +281,14 @@ body {
     display: flex;
     flex-direction: column-reverse;
     padding: -20px;
+    flex-basis: content;
 }
 
 .renderedEls {
     font-family: 'cursive','Courier New', Courier, monospace;
     background: var(--purple);
-    width: 50vh;
-    height: 40vh;
+    width: 100vw;
+    height: 60vh;
     color: var(--yellow);
     text-align: center;
     border-radius: 30px;
@@ -288,11 +297,13 @@ body {
     grid-template-areas:
         "title title title"
         "texts texts texts"
-        "userName . year"
-        "website . file"
+        "year year year"
+        "file file file"
     ;
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 0 40px black;
     overflow-y: auto;
+    scrollbar-gutter: stable both-edges;
+    border: 5px solid var(--lightPurple);
 }
 
 
@@ -301,6 +312,8 @@ body {
     background-color: var(--yellow);
     color: var(--purple);
     border-bottom: 1vmin solid var(--lightPurple);
+    width: 100%;
+    height: 85%;
     grid-area: title;
 }
 .content {
@@ -308,6 +321,9 @@ body {
     font-weight: 600;
     line-height: 1.25;
     grid-area: texts;
+    width: 90vw;
+    margin: 1%;
+    padding: 1%;
 }
 .userName {
     grid-area: userName;
@@ -315,14 +331,26 @@ body {
 
 .year {
     grid-area: year;
-}
-.website {
-    grid-area: website;
-}
-.file {
-    grid-area: file;
+    text-align: center;
+    align-self: center;
+    margin: 0 auto;
 }
 
+.file {
+    grid-area: file;
+    box-shadow: 0 0 10px white ;
+    margin-top: 5%;
+}
+
+.content,
+.year,
+.file {
+    width: 90%;
+    height: 80%;
+    font-size: 2vw;
+    margin: 0 6px;
+    justify-self: center;
+}
 
 
 /* width */
@@ -435,7 +463,12 @@ body {
 featured post
 
 */
-
+.featuredPost {
+    background-color: purple;
+    background-image: url("./Images/GeoDesign4.png");
+    background-size: 40%;
+    background-blend-mode: overlay;
+}
 .featuredSectionBody, .RecentPostTitle {
     background-color: var(--purple);
     color: var(--yellow);
@@ -444,6 +477,7 @@ featured post
 .featuredSectionContainer {
     width: 90vw;
     height: 50vh;
+    
 }
 
 .featuredPostImage {
@@ -451,9 +485,9 @@ featured post
     width: 35vw;
     height: 40vw;
     margin: 0 auto;
-    box-shadow: 0 0 200px black;
+    box-shadow: 0 0 200px whitesmoke;
     border-radius: 20px;
-    
+    border: solid var(--lightPurple) 2px;
 }
 
 .FeaturedPostContainer {
@@ -476,15 +510,25 @@ featured post
     font-weight: 600;
     line-height: 1.25;
     width: 100%;
-
+    background: var(--purple);
     text-wrap: wrap;
     overflow-y: auto;
 }
 
 .fpTitle {
+    box-shadow: 5px 2px 50px black;
     font-size: 5vw;
     text-align: center;
     text-decoration: underline;
+}
+.featuredPostYear {
+    text-align: center;
+    background: var(--purple);
+    padding: 2%;
+    font-size: 2.5vw;
+    border-radius: 40%;
+    font-weight: bold;
+    margin: 0 30%;
 }
 
 
@@ -512,28 +556,26 @@ featured post
     src: url(./Fonts/Cedarville-Cursive.ttf);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
+
     .postContainer {
         display: flex;
         flex-direction: row-reverse;
         flex-wrap: wrap-reverse;
-        padding: 10px;
         margin: 0;
-    
+        width: 100%;
     }
 
 
 
     .renderedEls {
-     
-        width: 31vw;
-        height: 40vh;
-
+        width: 32vw;
+        height: 50vh;
+        gap: 1px;
     }
-    
-    
-    .title {
 
+
+    .title {
         font-size: 3vw;
     }
 
@@ -551,19 +593,11 @@ featured post
         border-radius: 4%;
     }
 
-    .content,
-    .userName,
-    .year,
-    .website,
-    .file {
-        width: 100%;
-        font-size: 2vw;
-        margin: 0 6px;
-    }
+
 
 }
 
-@media (min-width: 550px) and (max-width: 899px)  {
+@media (min-width: 550px) and (max-width: 999px)  {
     .postContainer {
         display: flex;
         flex-direction: row-reverse;
@@ -583,11 +617,8 @@ featured post
 
     .title {
 
-        font-size: 3vw;
+        font-size: 5vw;
     }
-
-
-
 
     .AboutMeDescription {
         margin: 2vmax 10vw;
@@ -603,8 +634,7 @@ featured post
     .content,
     .userName,
     .year,
-    .website,
-    .file {
+    .website {
         width: 100%;
         font-size: 2vw;
         margin: 0 6px;
@@ -612,13 +642,20 @@ featured post
 
 }
 
-/* need footer also.. */
+footer {
 
+    background-color: var(--yellow);
+    color: var(--lightPurple);
+    text-align: center;
+    font-weight: bold;
+    
 
-/* 
-Home page... featured article, and recent posts below..
-page with full article, with image... then below, recent posts...
+}
 
-About me, with image, readMe, and bio... and below.. recent posts...
+footer a {
+    color: var(--lightPurple);
+}
 
-*/
+footer a:hover {
+    color: var(--purple);
+}

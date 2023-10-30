@@ -41,7 +41,7 @@
     <body>
                 <main> 
                     <section class="formSection" >
-                        <form class="forms">Write Post
+                        <form class="forms">
                             <input
                             class="titleInput"
                             type="text"
@@ -61,33 +61,20 @@
                             placeholder="What Have We Learned?"
                             required
                             ></textarea>
-                            <input
-                            class="dateInput"
-                            type="date"
-                            name="DateOfPost"
-                            id="2"
-                            >
-                            <input
-                            class="urlInput"
-                            type="url"
-                            name="Website"
-                            id="3"
-                            placeholder="Website?"
-                            >
-                            <input
-                            class="fileInput"
-                            type="file"
-                            name="Files"
-                            id="4"
-                            >
-                            <input
-                            autocomplete="email"
-                            class="emailInput"
-                            type="email"
-                            name="Email"
-                            id="5"
-                            placeholder="Email?"
-                            >
+                            <div class="input-wrapper">
+                                <input
+                                class="fileInput"
+                                type="file"
+                                id="file"
+                                name="Files"
+                                id="4"
+                                required
+                                >
+                                <label for="file">
+                                    <i for="file" class="fa-solid fa-upload fa-lg"></i>
+                                </label>
+                            </div>
+                      
                             <button class="postBtn" type="submit" class="submitBtn">Post</button>
                         </form>
                     </section>
@@ -97,19 +84,12 @@
                 </main>
 
 
-        <!-- <script type="module" src="./classes.js"></script>
-        <script type="module" src="database.js"></script>
-        <script type="module" src="./posted.js"></script> -->
+
         <script type="module" src="./journal.js"></script>
     
     </body>
     <footer>
-
-        <!--
-            Need to add footer....
-         -->
-
-
+        Created by <a style="text-decoration: none;" href="https://github.com/snovacain" target="_blank" ><span class= "creator_name"> Thomas <span class="copyrightDate"></span> </span></a>
     </footer>
 </html>
 
