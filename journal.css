@@ -317,7 +317,7 @@ i {
     grid-area: title;
 }
 .content {
-    font-size: 3.9vw;
+    font-size: 6vw;
     font-weight: 600;
     line-height: 1.25;
     grid-area: texts;
@@ -347,7 +347,7 @@ i {
 .file {
     width: 90%;
     height: 80%;
-    font-size: 2vw;
+    font-size: 5vw;
     margin: 0 6px;
     justify-self: center;
 }
