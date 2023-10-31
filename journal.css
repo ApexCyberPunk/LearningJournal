@@ -579,8 +579,12 @@ featured post
         font-size: 3vw;
     }
 
-
-
+    .content {
+        font-size: 3.5vw;
+    }
+    .year {
+        font-size: 2vw;
+    }
 
     .AboutMeDescription {
         margin: 2vmax 10vw;
